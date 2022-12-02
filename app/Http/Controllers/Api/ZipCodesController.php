@@ -54,15 +54,18 @@ class ZipCodesController extends Controller
         $zipCodesLocated = ZipCodes::where('d_codigo', '=', $zipCode)->get();
         $settlements = array();
         $objZipCode = (object) array();
+        $objFederalEntity = (object) array();
+        $objSettlement = (object) array();
+        $objMunicipality = (object) array();
+        $dCodigo = 0;
+        $dCiudad = "No City";
 
         /** get each zip code from array $zipCodes */
         foreach ($zipCodesLocated as $zipCode) {
             /** object for federal entity */
-            $objFederalEntity = (object) array(
-                'key'=>$zipCode->c_estado,
-                'name'=>strtoupper($zipCode->d_estado),
-                'code'=>!empty($zipCode->c_cp) ? $zipCode->c_cp : null 
-            );
+            $objFederalEntity->key = $zipCode->c_estado;
+            $objFederalEntity->name = strtoupper($zipCode->d_estado);
+            $objFederalEntity->code = !empty($zipCode->c_cp) ? $zipCode->c_cp : null;
             /** array of settlements for zip code */
             $objSettlement = (object) array(
                 'key'=>$zipCode->id_asenta_cpcons,
@@ -72,10 +75,8 @@ class ZipCodesController extends Controller
             );
             array_push($settlements, $objSettlement);
             /** object for municipality */
-            $objMunicipality = (object) array(
-                'key'=>$zipCode->c_mnpio,
-                'name'=>strtoupper($zipCode->d_mnpio),
-            );
+            $objMunicipality->key = $zipCode->c_mnpio;
+            $objMunicipality->name = strtoupper($zipCode->d_mnpio);
             $dCodigo = $zipCode->d_codigo;
             $dCiudad = strtoupper($zipCode->d_ciudad);
         }
