@@ -22,13 +22,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('zip-codes', ZipCodesController::class);
-
-//Route::get('zip-codes/{id}', [ZipCodesController::class, 'show']);
-
-/*Route::get('zip-codes/{zipcode}', function ($zip_code) {
-    return "Get Zip Code";
-});*/
-
-/*Route::get('/zip-codes/{zipcode}', function ($zip_code) {
-    return new ZipCodesResource(ZipCodes::findOrFail($zip_code));
-});*/
