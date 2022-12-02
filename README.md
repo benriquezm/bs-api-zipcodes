@@ -1,66 +1,31 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API Zip Codes -> Backbonesystem
+## _¿Cómo se llegó a la solución?_
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Se realizó un análisis y con base a lo leído en el archivo PDF del reto se llegaron a las siguientes conclusiones:
 
-## About Laravel
+- Revisar las versiones de Laravel y la documentación, ya que en mi caso en particular me quede en la versión 5 y actualmente pues ya está la 9 y quizá algunas cosas fueron actualizas o eliminadas.
+- Crear un ambiente de desarrollo haciendo uso de Docker
+- Utilizar AWS Elastic Beanstalk, ya que fue prácticamente sencillo poder desplegar el ambiente para un entorno de producción y sobre todo que pudiera contar con un buen tiempo de ejecución al momento de solicitar la API.
+- Analizar los datos, ver como se iba a estructurar el JSON y ver como se iba a guardar la información en la DB.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Goals Code
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- En un momento se pensó poder utilizar la metodología de diseño TDD, ya que es una metodología que tiene muchas ventajas sobre todo poder escribir un código con pruebas unitarias, en vez de la manera tradicional, no se pudo realizar ya que en mi caso no estoy muy familizarizado con los Test de lado de php, pero si se realizaron pruebas unitarias del código implementado.
+- De lado de AWS se pudo implementar AWS Code Pipeline, ya que hoy en día es una manera de poder tener un mayor control sobre el código y evita que sea un proceso manual de envío de código a producción.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech
 
-## Learning Laravel
+Tecnología utilizada:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Laravel 9](https://laravel.com/docs/9.x) - The PHP Framework for Web Artisans!
+- [Docker](https://www.docker.com/) - Develop faster. Run anywhere
+- [AWS RDS] - Database MySQL.
+- [AWS Codepipeline](https://aws.amazon.com/es/codepipeline/) - Automate continuous delivery pipelines for fast, reliable updates
+- [AWS Elastic Beanstalk](https://aws.amazon.com/es/elasticbeanstalk/) - Deploy and extend web applications
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## References
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Implementar una aplicación con [AWS Elastick Beanstalk](https://docs.aws.amazon.com/es_es/elasticbeanstalk/latest/dg/php-laravel-tutorial.html#php-laravel-tutorial-database).
+Implementar CI/CD [AWS Codepipline](https://gerrysabar.medium.com/simple-ci-cd-implementation-through-github-to-aws-beanstalk-for-laravel-cf85a1f51458).
+Crear los reportes de cobertura de la corrida de los test con PHPUnit [Coverage PHPUnit](https://medium.com/@anowarhossain/code-coverage-report-in-laravel-and-make-100-coverage-of-your-code-ce27cccbc738).
+Testing con PHPUnit en Laravel [php artisan test](https://auth0.com/blog/testing-laravel-apis-with-phpunit/).
