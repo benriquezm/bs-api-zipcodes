@@ -22,27 +22,6 @@ class ZipCodesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\ZipCodes  $zipCode
@@ -87,39 +66,5 @@ class ZipCodesController extends Controller
         $objZipCode->municipality = $objMunicipality;
         
         return response()->json($objZipCode, 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ZipCodes  $zipCodes
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ZipCodes $zipCodes)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ZipCodes  $zipCodes
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ZipCodes $zipCodes)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ZipCodes  $zipCodes
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ZipCodes $zipCodes)
-    {
-        //
     }
 }
