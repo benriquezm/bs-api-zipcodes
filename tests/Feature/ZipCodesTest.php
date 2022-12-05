@@ -54,9 +54,7 @@ class ZipCodesTest extends TestCase
         $this->withoutExceptionHandling();
         /** create one zip code item into db */
         $zipCodes = ZipCodes::factory(1)->create();
-        //dd($zipCodes);
         /** get zip code of item save into db */
-        //dd($zipCodes[0]->d_codigo);
         $response = $this->get("api/zip-codes/{$zipCodes[0]->d_codigo}")
             ->assertStatus(200)
             ->assertJsonStructure([
@@ -82,6 +80,5 @@ class ZipCodesTest extends TestCase
                     'name',
                 ]
             ]);
-        //dd($response);
     }
 }
