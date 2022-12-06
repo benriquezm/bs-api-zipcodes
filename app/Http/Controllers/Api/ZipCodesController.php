@@ -64,7 +64,7 @@ class ZipCodesController extends Controller
             'zip_code' => $dCodigo,
             'locality' => $dCiudad,
             'federal_entity' => $objFederalEntity,
-            'settelements' => $settlements,
+            'settlements' => $settlements,
             'municipality' => $objMunicipality,
         ];
         //$objZipCode->zip_code = $dCodigo;
