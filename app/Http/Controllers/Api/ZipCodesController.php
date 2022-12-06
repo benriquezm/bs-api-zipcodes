@@ -38,6 +38,7 @@ class ZipCodesController extends Controller
         $objMunicipality = (object) array();
         $dCodigo = 0;
         $dCiudad = "No City";
+        $message = "";
 
         /** get each zip code from array $zipCodes */
         foreach ($zipCodesLocated as $zipCode) {
@@ -59,12 +60,27 @@ class ZipCodesController extends Controller
             $dCodigo = $zipCode->d_codigo;
             $dCiudad = strtoupper($zipCode->d_ciudad);
         }
-        $objZipCode->zip_code = $dCodigo;
-        $objZipCode->locality = $dCiudad;
-        $objZipCode->federal_entity = $objFederalEntity;
-        $objZipCode->settlements = $settlements;
-        $objZipCode->municipality = $objMunicipality;
+        $objZipCode = [
+            'zip_code' => $dCodigo,
+            'locality' => $dCiudad,
+            'federal_entity' => $objFederalEntity,
+            'settelements' => $settlements,
+            'municipality' => $objMunicipality,
+        ];
+        //$objZipCode->zip_code = $dCodigo;
+        //$objZipCode->locality = $dCiudad;
+        //$objZipCode->federal_entity = $objFederalEntity;
+        //$objZipCode->settlements = $settlements;
+        //$objZipCode->municipality = $objMunicipality;
+        //dd($objZipCode->zip_code);
+        //print_r($objZipCode);
+        if (count($zipCodesLocated) === 0) {
+            $message = "Not found records for zip code $zipCode";
+            $objZipCode = [
+                'message' => $message,
+            ];
+        }
         
-        return response()->json($objZipCode, 200);
+        return response()->json($objZipCode, count($zipCodesLocated) > 0 ? 200 : 404);
     }
 }
